@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO — replicar estos tags en el head del host (WordPress/Elementor o plugin SEO);
+       en producción la metadata real la sirve WP, no el bundle. -->
+  <title>Tradeco Capital | Comunidad gratuita de trading en Telegram</title>
+  <meta name="description" content="Únete gratis a la comunidad de Tradeco Capital en Telegram y aprende a operar Forex con método: análisis técnico, gestión de riesgo y disciplina, sin promesas vacías." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Tradeco Capital" />
+  <meta name="theme-color" content="#11151c" />
+  <link rel="canonical" href="https://atfx.tradecocapital.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tradeco Capital" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Aprende a operar Forex con el método de los traders profesionales" />
+  <meta property="og:description" content="Comunidad gratuita en Telegram: análisis técnico, gestión de riesgo y disciplina operativa paso a paso. Sin tarjeta, sin promesas vacías." />
+  <meta property="og:url" content="https://atfx.tradecocapital.com/" />
+  <meta property="og:image" content="https://pub-62c41549a44642efbcd3f775bdb039b3.r2.dev/norman_5c9113acca77d41c29e112116d1f8d3929bf55959e191e8da8485d8eaa025c7f.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aprende a operar Forex con el método de los traders profesionales" />
+  <meta name="twitter:description" content="Comunidad gratuita en Telegram: análisis técnico, gestión de riesgo y disciplina operativa paso a paso." />
+  <meta name="twitter:image" content="https://pub-62c41549a44642efbcd3f775bdb039b3.r2.dev/norman_5c9113acca77d41c29e112116d1f8d3929bf55959e191e8da8485d8eaa025c7f.webp" />
+
+  <!-- Estilos del bundle local (dev) -->
+  <link rel="stylesheet" href="/dist/landing.css" />
+
+  <style>
+    /* El DS usa --aa-font: inherit (adopta la fuente del host). En Elementor la toma
+       del tema; aquí simulamos un host con una sans moderna para el preview. */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Embed realista: un solo mount, igual que en Elementor.
+       Las secciones declaran su propio strip (data-aa-section-theme). -->
+  <div data-aa-mount data-aa-theme="dark" data-aa-lang="es"></div>
+
+  <!-- Bundle local (npm run dev) -->
+  <script type="module" src="/dist/landing.js"></script>
+</body>
+</html>

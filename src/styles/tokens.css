@@ -1,0 +1,237 @@
+/* atom-academy · design tokens (OSMO-inspired). Fuente única de verdad del DS. */
+
+/* ─── Fluid scaling (base desktop 1440) ──────────────────────────────────────── */
+:root {
+  --aa-size-unit: 16;
+  --aa-size-container-ideal: 1440;
+  --aa-size-container-min: 992px;
+  /* Tope del escalado fluido: la tipografía deja de crecer pasado el ancho "ideal"
+     (1440). Sin esto, en monitores grandes (≥1920) la base subía a ~21px y todo se veía
+     +33% más grande/pesado. */
+  --aa-size-container-max: 1200px;
+  --aa-size-container: clamp(var(--aa-size-container-min), 100vw, var(--aa-size-container-max));
+  --aa-size-font: calc(var(--aa-size-container) / (var(--aa-size-container-ideal) / var(--aa-size-unit)));
+
+  /* ─── Color — neutral scale ───────────────────────────────────────────────── */
+  --aa-neutral-50:  #fafafa;
+  --aa-neutral-100: #f5f5f5;
+  --aa-neutral-150: #efefef;
+  --aa-neutral-200: #e5e5e5;
+  --aa-neutral-300: #d4d4d4;
+  --aa-neutral-400: #a3a3a3;
+  --aa-neutral-500: #737373;
+  --aa-neutral-600: #525252;
+  --aa-neutral-700: #404040;
+  --aa-neutral-800: #262626;
+  --aa-neutral-850: #1a1a1a;
+  --aa-neutral-900: #171717;
+  --aa-neutral-950: #0a0a0a;
+
+  /* ════ PRIMITIVOS — Tradeco/Norman (marca dictada por la agencia) ═══════════ */
+  /* Ink / carbón — escala de superficie dark, declarada page→overlay. Es el
+     "layering" del dark mode: cada paso sube un nivel de elevación. */
+  --aa-ink-900: #0c0f15; /* negativo / sombra bajo page */
+  --aa-ink-850: #11151c; /* PAGE — fondo base de la marca */
+  --aa-ink-800: #161b24; /* surface — cards, strips alternos */
+  --aa-ink-700: #1b212b; /* elevated — card sobre surface */
+  --aa-ink-600: #222a35; /* overlay — navbar blur, popovers */
+  --aa-ink-650: #212530; /* card de footer (testimonio / CTA final) */
+
+  /* Cream — tinta cálida sobre dark */
+  --aa-cream: #f3efe6;
+
+  /* Paper — superficie base de los strips claros (light mode) */
+  --aa-paper: #f6f7f9;
+
+  /* Gold — HIGHLIGHT: único color de acción (CTA, links, números, eyebrow) */
+  --aa-gold-500:  #c99b4a; /* base */
+  --aa-gold-400:  #d6aa5b; /* hover */
+  --aa-gold-weak: rgba(201, 155, 74, 0.14); /* chips, glow, borde activo */
+
+  /* Orange — ATFX: HIGHLIGHT nuevo (único color de acción: CTA, links, acentos) */
+  --aa-orange-500: #f2672a;
+  --aa-orange-600: #d9551c; /* hover */
+  --aa-orange-weak: rgba(242, 103, 42, 0.14); /* chips, glow, borde activo */
+
+  /* Teal — SOPORTE: señales live/positivo (dot en vivo, vela alcista, success).
+     Nunca compite con el CTA. */
+  --aa-teal-500: #4fa89b;
+
+  /* Acentos de sección — cards "Lo que encontrarás" (paleta dictada por la agencia):
+     slate para el badge; teal profundo para la card clara; menta para su gradiente;
+     sombras "apiladas" (offset duro) cálida/fría para las cards oscuras. */
+  --aa-slate-100:   #ebeef3; /* badge claro "Sobre Norman" — fondo */
+  --aa-lavender-200: #dde5fb; /* badge claro "La comunidad habla" — fondo */
+  --aa-slate-500:   #607797;
+  --aa-slate-700:   #364256; /* badge "Cómo funciona" — slate más profundo */
+  --aa-teal-900:    #2d4242;
+  --aa-mint-200:    #ddeae8;
+  --aa-shadow-warm: #4d3f2f;
+  --aa-shadow-cool: #d3dae4;
+
+  /* Estado de error — color funcional, fuera de la paleta de marca */
+  --aa-color-coral: #f84131;
+
+  /* Aliases legacy → repuntan a la nueva marca (no rompen referencias navy/cyan) */
+  --aa-navy-950: var(--aa-ink-850);
+  --aa-navy-900: var(--aa-ink-800);
+  --aa-navy-850: var(--aa-ink-700);
+  --aa-navy-800: var(--aa-ink-700);
+  --aa-color-cyan: var(--aa-teal-500);
+
+  /* Compat: CSS de componentes heredados de Peru (countdown, pillar-slider, topbar…)
+     aún leen --aa-blue-*. Se repuntan a la marca nueva para no dejar vars colgando;
+     esos componentes se reemplazan al integrar el diseño aprobado de Relume. */
+  --aa-blue-990: var(--aa-ink-850);
+  --aa-blue-950: var(--aa-ink-700);
+  --aa-blue-700: var(--aa-highlight);
+  --aa-blue-500: var(--aa-support);
+
+  /* ════ SEMÁNTICOS — DARK por defecto (LP dark-first) ════════════════════════ */
+  /* Superficie (layering) */
+  --aa-bg:          var(--aa-ink-850);
+  --aa-bg-subtle:   var(--aa-ink-800); /* alias compat (= surface) */
+  --aa-bg-surface:  var(--aa-ink-800);
+  --aa-bg-elevated: var(--aa-ink-700);
+  --aa-bg-overlay:  var(--aa-ink-600);
+
+  /* Tinta — muted/subtle derivados del fg con alpha = armonía de temperatura */
+  --aa-fg:            var(--aa-cream);
+  --aa-fg-muted:      rgba(243, 239, 230, 0.62);
+  --aa-fg-subtle:     rgba(243, 239, 230, 0.40);
+  --aa-border:        rgba(243, 239, 230, 0.08);
+  --aa-border-strong: rgba(243, 239, 230, 0.14);
+
+  /* Highlight (orange ATFX) — cluster semántico de acción. El gold queda retirado
+     de la paleta; orange es ahora el único color de acción. */
+  --aa-highlight:       var(--aa-orange-500);
+  --aa-highlight-hover: var(--aa-orange-600);
+  --aa-highlight-weak:  var(--aa-orange-weak);
+  --aa-on-highlight:    #ffffff;
+
+  /* Support (teal) — soporte, no acción */
+  --aa-support: var(--aa-teal-500);
+
+  /* accent = alias de acción → highlight (gold). Conserva componentes que ya
+     leen --aa-accent como color de CTA. */
+  --aa-accent:    var(--aa-highlight);
+  --aa-accent-fg: var(--aa-on-highlight);
+
+  /* ─── Spacing — section level (grande) ────────────────────────────────────── */
+  --aa-padding-xxl: 8rem;
+  --aa-padding-xl:  6rem;
+  --aa-padding-l:   4rem;
+  --aa-padding-m:   2.5rem;
+  --aa-padding-s:   1.5rem;
+  --aa-padding-xs:  1rem;
+  --aa-padding-xxs: 0.5rem;
+
+  /* ─── Spacing — component level (chico) ───────────────────────────────────── */
+  --aa-gap-xxl: 5rem;
+  --aa-gap-xl:  3.5rem;
+  --aa-gap-l:   2.5rem;
+  --aa-gap-m:   1.5rem;
+  --aa-gap-s:   1rem;
+  --aa-gap-xs:  0.75rem;
+  --aa-gap-xxs: 0.5rem;
+
+  /* ─── Border radius ───────────────────────────────────────────────────────── */
+  --aa-radius-s:    4px;
+  --aa-radius-m:    8px;
+  --aa-radius-l:    16px;
+  --aa-radius-xl:   24px;
+  --aa-radius-pill: 999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────────────────── */
+  --aa-shadow-soft: 0 4px 40px rgba(0, 0, 0, 0.05); /* panel flotante sutil */
+
+  /* ─── Animation (OSMO easing system) ──────────────────────────────────────── */
+  --aa-ease:        cubic-bezier(0.625, 0.05, 0, 1);   /* "osmo" — signature ease */
+  --aa-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* spring / bounce */
+  --aa-ease-out:    cubic-bezier(0.22, 1, 0.36, 1);    /* expo-out feel */
+  --aa-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --aa-duration-xs: 0.15s;
+  --aa-duration-s:  0.3s;
+  --aa-duration-m:  0.6s;
+  --aa-duration-l:  1.2s;
+  --aa-duration-xl: 1.8s;
+
+  --aa-stagger: 0.05s;
+
+  /* ─── Typography ──────────────────────────────────────────────────────────── */
+  --aa-font:         'Chivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --aa-font-display: 'Chivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --aa-font-mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Escala basada en --aa-size-font (base fluida px de .aa-landing) en vez de rem, para
+     ser INDEPENDIENTE del font-size del <html> del sitio WP (temas con root 62.5% achicaban
+     todo). El factor reemplaza a los rem; los vw se quedan (ya eran root-independientes). */
+  --aa-text-xxl: clamp(calc(var(--aa-size-font) * 3),    5vw,   calc(var(--aa-size-font) * 5.5));
+  --aa-text-xl:  clamp(calc(var(--aa-size-font) * 2.25), 3.5vw, calc(var(--aa-size-font) * 3.25));
+  --aa-text-l:   clamp(calc(var(--aa-size-font) * 1.75), 3vw,   calc(var(--aa-size-font) * 2.75));
+  --aa-text-ml:  clamp(calc(var(--aa-size-font) * 1.5),  2.5vw, calc(var(--aa-size-font) * 2.25));
+  --aa-text-m:   clamp(calc(var(--aa-size-font) * 1.25), 2vw,   calc(var(--aa-size-font) * 1.75));
+  --aa-text-s:   clamp(calc(var(--aa-size-font) * 1),    1.5vw, calc(var(--aa-size-font) * 1.25));
+  --aa-text-xs:  calc(var(--aa-size-font) * 0.875);
+  --aa-text-xxs: calc(var(--aa-size-font) * 0.75);
+
+  --aa-leading-tight:  1.1;
+  --aa-leading-snug:   1.25;
+  --aa-leading-normal: 1.5;
+  --aa-leading-loose:  1.75;
+
+  --aa-weight-regular:   400;
+  --aa-weight-medium:    500;
+  --aa-weight-semibold:  600;
+  --aa-weight-bold:      700;
+  --aa-weight-extrabold: 800;
+
+  /* ─── Container ───────────────────────────────────────────────────────────── */
+  --aa-container-max: 1400px;
+  --aa-container-pad: var(--aa-padding-m);
+
+  /* ─── Layout heights ──────────────────────────────────────────────────────── */
+  --aa-nav-height: 4.625em; /* spacer superior del hero (alto de navbar OSMO) */
+  --aa-topbar-height: 0px; /* top marquee removido del layout → navbar pegado arriba */
+
+  /* ─── Form (estilo input de OSMO) ─────────────────────────────────────────── */
+  --aa-input-height: 3em;
+  --aa-input-bg:     var(--aa-neutral-200);
+  --aa-input-radius: var(--aa-radius-s);
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --aa-size-container-ideal: 834;
+    --aa-size-container-min: 768px;
+    --aa-size-container-max: 991px;
+    --aa-container-pad: var(--aa-padding-s);
+    --aa-padding-xxl: 5rem;
+    --aa-padding-xl:  4rem;
+    --aa-padding-l:   3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    /* ideal más alto = base de fuente más chica (escala mobile mucho más pequeña) */
+    --aa-size-container-ideal: 720;
+    --aa-size-container-min: 480px;
+    --aa-size-container-max: 767px;
+    --aa-container-pad: var(--aa-padding-xs);
+    --aa-padding-xxl: 4rem;
+    --aa-padding-xl:  3rem;
+    --aa-padding-l:   2rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --aa-size-container-ideal: 500;
+    --aa-size-container-min: 320px;
+    --aa-size-container-max: 479px;
+    --aa-padding-xxl: 3rem;
+    --aa-padding-xl:  2.5rem;
+  }
+}

@@ -1,0 +1,26 @@
+/* Badge — eyebrow sólido con punto, en neutros. Tokens --aa-*. Dos variantes por
+   contraste de strip: ink (sobre claro) · light (neutro, sobre oscuro). */
+
+.aa-landing .aa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--aa-gap-xxs);
+  padding: var(--aa-padding-xxs) var(--aa-gap-s);
+}
+.aa-landing .aa-badge__dot {
+  width: 0.5em;
+  height: 0.5em;
+  flex: none;
+}
+.aa-landing .aa-badge__text {
+  color: inherit;
+  letter-spacing: 0.08em;
+}
+
+/* ink: oscuro sólido, tinta clara — sobre strips claros */
+.aa-landing .aa-badge--ink { background: var(--aa-ink-850); color: var(--aa-cream); }
+.aa-landing .aa-badge--ink .aa-badge__dot { background: var(--aa-cream); }
+
+/* light: claro neutro, tinta y punto oscuros — sobre strips oscuros (hero, footer) */
+.aa-landing .aa-badge--light { background: var(--aa-neutral-150); color: var(--aa-ink-850); }
+.aa-landing .aa-badge--light .aa-badge__dot { background: var(--aa-ink-850); }

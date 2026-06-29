@@ -1,0 +1,191 @@
+/* Lo que encontrarás — strip claro: header (badge + heading) + slider GSAP de cards.
+   Slides-per-view y gap por CSS (watch CSS). Tokens --aa-*. Breakpoints 991/767. */
+
+.aa-landing .aa-benefits {
+  padding-block: var(--aa-padding-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-xl);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────────── */
+.aa-landing .aa-benefits__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--aa-gap-l);
+}
+.aa-landing .aa-benefits__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: var(--aa-weight-regular);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.aa-landing .aa-benefits__title-em { font-weight: var(--aa-weight-bold); }
+
+/* ── Slider (OSMO "watch CSS") ────────────────────────────────────────────────── */
+.aa-landing .aa-benefits__slider {
+  --slider-status: on;
+  --slider-spv: 3;
+  --slider-gap: var(--aa-gap-m);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-inline: var(--aa-container-pad);
+}
+.aa-landing .aa-benefits__viewport {
+  width: 100%;
+  max-width: var(--aa-container-max);
+  margin-inline: auto;
+}
+.aa-landing .aa-benefits__track {
+  display: flex;
+  user-select: none;
+  touch-action: pan-y;
+  will-change: transform;
+}
+.aa-landing .aa-benefits__slide {
+  flex: none;
+  width: calc((100% - (var(--slider-spv) - 1) * var(--slider-gap)) / var(--slider-spv));
+  margin-right: var(--slider-gap);
+}
+.aa-landing .aa-benefits__slide:last-child { margin-right: 0; }
+
+/* Controles prev/next — alineados al ancho de contenido */
+.aa-landing .aa-benefits__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--aa-gap-xs);
+  width: 100%;
+  max-width: var(--aa-container-max);
+  margin-inline: auto;
+  margin-top: var(--aa-gap-m);
+}
+.aa-landing .aa-benefits__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--aa-gap-xl);
+  height: var(--aa-gap-xl);
+  border: 1px solid var(--aa-border-strong);
+  border-radius: var(--aa-radius-pill);
+  background: transparent;
+  color: var(--aa-fg);
+  font-size: var(--aa-text-s);
+  cursor: pointer;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+.aa-landing .aa-benefits__control[data-gsap-slider-control-status="not-active"] {
+  opacity: 0.25;
+  pointer-events: none;
+}
+.aa-landing .aa-benefits__slider[data-gsap-slider-status="not-active"] .aa-benefits__controls {
+  display: none;
+}
+
+/* ── Benefit card ─────────────────────────────────────────────────────────────── */
+.aa-landing .aa-bcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-m);
+  aspect-ratio: 3 / 4;
+  padding: var(--aa-padding-s);
+  border-radius: var(--aa-radius-xl);
+  overflow: hidden;
+}
+
+/* Honeycomb decorativo: top-right, detrás del contenido. Color por currentColor
+   (lo fija cada variante para contrastar con su fondo). */
+.aa-landing .aa-bcard__honeycomb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.aa-landing .aa-bcard__honeycomb svg {
+  display: block;
+  width: 55%;
+  height: auto;
+  margin-left: auto;
+}
+
+/* Shape decorativa top-left, detrás del contenido; color por currentColor (variante). */
+.aa-landing .aa-bcard__shape {
+  position: absolute;
+  top: var(--aa-padding-s);
+  left: var(--aa-padding-s);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.aa-landing .aa-bcard__shape svg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.aa-landing .aa-bcard__icon,
+.aa-landing .aa-bcard__body { position: relative; z-index: 1; }
+.aa-landing .aa-bcard__icon {
+  height: var(--aa-gap-xxl);
+  flex: none;
+}
+.aa-landing .aa-bcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-s);
+  margin-top: auto; /* empuja el texto al pie de la card (icono arriba) */
+}
+.aa-landing .aa-bcard__title {
+  margin: 0;
+  font-size: var(--aa-text-m);
+  font-weight: var(--aa-weight-medium);
+  line-height: var(--aa-leading-snug);
+}
+.aa-landing .aa-bcard__desc {
+  margin: 0;
+  font-size: var(--aa-text-s);
+  font-weight: var(--aa-weight-regular);
+  line-height: var(--aa-leading-normal);
+}
+
+/* Variante light: gradiente papel→menta, sombra apilada, outline hairline, tinta teal */
+.aa-landing .aa-bcard--light {
+  background: linear-gradient(180deg, var(--aa-bg-subtle) 0%, var(--aa-mint-200) 100%);
+  color: var(--aa-teal-900);
+  outline: 1px solid color-mix(in srgb, var(--aa-teal-900) 20%, transparent);
+  outline-offset: -1px;
+}
+/* fg dark blue (honeycomb + shape) sobre fondo claro */
+.aa-landing .aa-bcard--light .aa-bcard__honeycomb,
+.aa-landing .aa-bcard--light .aa-bcard__shape { color: var(--aa-ink-850); }
+
+/* Variante dark: superficie ink, tinta cream */
+.aa-landing .aa-bcard--dark {
+  background: var(--aa-ink-850);
+  color: var(--aa-cream);
+}
+/* fg blanco (tinta cream del DS) sobre fondo azul oscuro */
+.aa-landing .aa-bcard--dark .aa-bcard__honeycomb,
+.aa-landing .aa-bcard--dark .aa-bcard__shape { color: var(--aa-cream); }
+
+/* Sombra apilada (offset duro 0 8px 0) por tono */
+.aa-landing .aa-bcard--shadow-teal { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-teal-900); }
+.aa-landing .aa-bcard--shadow-warm { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-shadow-warm); }
+.aa-landing .aa-bcard--shadow-cool { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-shadow-cool); }
+
+/* ── Responsive: slides-per-view ──────────────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  .aa-landing .aa-benefits__slider { --slider-spv: 2.25; }
+}
+@media screen and (max-width: 767px) {
+  .aa-landing .aa-benefits__slider {
+    --slider-spv: 1.15;
+    --slider-gap: var(--aa-gap-s);
+  }
+}

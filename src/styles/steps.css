@@ -1,0 +1,131 @@
+/* Cómo funciona — strip claro: header + banner + tres pasos en fila. Cada paso revela en
+   hover una descripción. Mobile/touch: reveal abierto y banner oculto. Tokens --aa-*.
+   Breakpoints 991/767. */
+
+.aa-landing .aa-steps {
+  padding-block: var(--aa-padding-m);
+}
+
+.aa-landing .aa-steps .aa-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-xl);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────────── */
+.aa-landing .aa-steps__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--aa-gap-l);
+}
+.aa-landing .aa-steps__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: var(--aa-weight-regular); /* base ligero; el énfasis va en "Tres" */
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.aa-landing .aa-steps__title-em { font-weight: var(--aa-weight-bold); }
+
+/* ── Banner (placeholder; se pierde en mobile) ───────────────────────────────── */
+.aa-landing .aa-steps__banner {
+  width: 100%;
+  aspect-ratio: 1368 / 580;
+  object-fit: cover;
+  border-radius: var(--aa-radius-xl);
+  display: block;
+}
+
+/* ── Lista de pasos: fila de 3 (cada card crece al expandir, top-aligned) ─────── */
+.aa-landing .aa-steps__list {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--aa-gap-xs);
+}
+
+/* Card de paso: outline por defecto; se rellena y expande en hover */
+.aa-landing .aa-step {
+  flex: 1 1 0;
+  padding: var(--aa-padding-s);
+  border-radius: var(--aa-radius-xl);
+  outline: 1px solid var(--aa-shadow-cool);
+  outline-offset: -1px;
+  background: transparent;
+  transition: background var(--aa-duration-s) var(--aa-ease-out),
+              outline-color var(--aa-duration-s) var(--aa-ease-out);
+}
+.aa-landing .aa-step__row {
+  display: flex;
+  align-items: center;
+  gap: var(--aa-gap-s);
+}
+/* Número envuelto en su propio círculo (1:1) */
+.aa-landing .aa-step__n {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--aa-gap-xl);
+  height: var(--aa-gap-xl);
+  border-radius: var(--aa-radius-pill);
+  background: color-mix(in srgb, var(--aa-ink-850) 10%, transparent);
+  font-size: var(--aa-text-s);
+  font-weight: var(--aa-weight-regular);
+  color: var(--aa-fg);
+  transition: background var(--aa-duration-s) var(--aa-ease-out);
+}
+.aa-landing .aa-step__title {
+  margin: 0;
+  flex: 1 1 0;
+  font-size: var(--aa-text-s);
+  font-weight: var(--aa-weight-regular);
+  line-height: var(--aa-leading-snug);
+  color: var(--aa-fg);
+}
+
+/* Reveal: grid 0fr→1fr para abrir suave; el inner se clipa cuando está cerrado */
+.aa-landing .aa-step__reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--aa-duration-s) var(--aa-ease-out);
+}
+.aa-landing .aa-step__reveal-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding-top: var(--aa-gap-m);
+}
+.aa-landing .aa-step__desc {
+  margin: 0;
+  font-size: var(--aa-text-s);
+  font-weight: var(--aa-weight-regular);
+  line-height: var(--aa-leading-normal);
+  color: var(--aa-fg);
+}
+
+/* Estado expandido (hover en desktop con puntero fino) */
+.aa-landing .aa-step:hover {
+  background: var(--aa-shadow-cool);
+  outline-color: transparent;
+}
+.aa-landing .aa-step:hover .aa-step__n { background: var(--aa-bg-subtle); }
+.aa-landing .aa-step:hover .aa-step__reveal { grid-template-rows: 1fr; }
+
+/* Hairline de cierre (decorativo) */
+.aa-landing .aa-steps__rule {
+  height: 0;
+  border-top: 1px solid var(--aa-border);
+}
+
+/* ── Touch / sin hover: reveal abierto siempre ───────────────────────────────── */
+@media (hover: none) {
+  .aa-landing .aa-step__reveal { grid-template-rows: 1fr; }
+}
+
+/* ── Responsive: apila las cards y oculta el banner ──────────────────────────── */
+@media screen and (max-width: 767px) {
+  .aa-landing .aa-steps__banner { display: none; }
+  .aa-landing .aa-steps__list { flex-direction: column; align-items: stretch; }
+  .aa-landing .aa-step__reveal { grid-template-rows: 1fr; }
+  .aa-landing .aa-steps__rule { display: none; }
+}

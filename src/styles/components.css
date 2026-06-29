@@ -1,0 +1,215 @@
+/* atom-academy · components. Button (patrón 038 OSMO), card, divider. */
+
+/* ─── Button 018 (fondo que se expande sutil en hover) — portado de The Vault ────── */
+.aa-landing .aa-button {
+  --aa-btn-radius: var(--aa-radius-s);
+  --aa-btn-padding: 1.5em 2em;
+  --aa-btn-gap: 1em;
+  --aa-btn-focus-inset: -0.125em;
+  /* Escala calculada por initButton018 desde el incremento en px; default 1 (sin hover) */
+  --aa-btn-scale-x: 1;
+  --aa-btn-scale-y: 1;
+  /* Ease-out limpio (sin overshoot) → el fondo se asienta suave, sin rebote brusco */
+  --aa-btn-ease-hover: var(--aa-ease-out);
+  --aa-btn-ease-focus: cubic-bezier(0.32, 0.72, 0, 1);
+  --aa-btn-color: var(--aa-accent-fg);
+  --aa-btn-bg: var(--aa-accent);
+  --aa-btn-focus: var(--aa-fg);
+
+  color: var(--aa-btn-color);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--aa-weight-bold);
+  line-height: 1;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  display: inline-grid;
+  position: relative;
+  cursor: pointer;
+}
+.aa-landing .aa-button--sm { --aa-btn-padding: 0.72em 1.15em; font-size: 0.875em; }
+
+.aa-landing .aa-button:hover,
+.aa-landing .aa-button:focus,
+.aa-landing .aa-button:active,
+.aa-landing .aa-button:visited {
+  color: var(--aa-btn-color);
+}
+
+/* Variantes por color (mapeadas a tokens del DS) */
+/* primary = CTA a Telegram → naranja ATFX (resalta más que el gold de acción) */
+.aa-landing .aa-button--primary { --aa-btn-color: #ffffff; --aa-btn-bg: var(--aa-orange-500); }
+.aa-landing .aa-button--secondary { --aa-btn-color: var(--aa-bg); --aa-btn-bg: var(--aa-fg); }
+.aa-landing .aa-button--ghost { --aa-btn-color: var(--aa-fg); --aa-btn-bg: transparent; }
+.aa-landing .aa-button--ghost .aa-button__bg { border: 1.5px solid var(--aa-border); }
+
+/* Anillo de focus accesible */
+.aa-landing .aa-button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: var(--aa-btn-focus-inset);
+  border-radius: var(--aa-btn-radius);
+  transition: box-shadow 0.3s var(--aa-btn-ease-focus), scale 0.45s var(--aa-btn-ease-hover);
+  pointer-events: none;
+  z-index: 1;
+}
+.aa-landing .aa-button:focus-visible::after {
+  box-shadow: 0 0 0 0.125em var(--aa-btn-focus);
+  scale: var(--aa-btn-scale-x) var(--aa-btn-scale-y);
+  transition: box-shadow 0.3s var(--aa-btn-ease-focus), scale 0.55s 0.05s var(--aa-btn-ease-hover);
+}
+
+.aa-landing .aa-button__inner {
+  pointer-events: none;
+  border-radius: var(--aa-btn-radius);
+  z-index: 1;
+  padding: var(--aa-btn-padding);
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--aa-btn-gap);
+}
+.aa-landing .aa-button__text {
+  white-space: nowrap;
+  will-change: transform;
+  transition: scale 0.4s var(--aa-btn-ease-hover);
+}
+/* Icono trailing: chevron base (down) rotado a chevron-right */
+.aa-landing .aa-button__icon {
+  display: inline-flex;
+  flex: none;
+}
+.aa-landing .aa-button__icon svg {
+  display: block;
+  width: 0.9em;
+  height: 0.9em;
+  transform: rotate(-90deg);
+}
+/* Fondo: capa que se escala (no el botón entero) → el contenido no se deforma */
+.aa-landing .aa-button__bg {
+  background-color: var(--aa-btn-bg);
+  border-radius: var(--aa-btn-radius);
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  transition: scale 0.4s var(--aa-btn-ease-hover);
+}
+/* Al presionar, el fondo "absorbe" el crecimiento (escala inversa) y el texto baja un pelo */
+.aa-landing .aa-button:active .aa-button__bg {
+  scale: calc(2 - var(--aa-btn-scale-x)) calc(2 - var(--aa-btn-scale-y));
+}
+.aa-landing .aa-button:active .aa-button__text { scale: 0.975; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .aa-landing .aa-button:is(:hover, :focus-visible) .aa-button__bg {
+    scale: var(--aa-btn-scale-x) var(--aa-btn-scale-y);
+    transition: scale 0.4s var(--aa-btn-ease-hover);
+  }
+  .aa-landing .aa-button:is(:hover, :focus-visible) .aa-button__text {
+    scale: 1.015;
+    transition: scale 0.4s var(--aa-btn-ease-hover);
+  }
+  .aa-landing .aa-button:active .aa-button__bg { scale: 1 1; }
+}
+
+/* ─── Card ────────────────────────────────────────────────────────────────────── */
+.aa-landing .aa-card {
+  background: var(--aa-bg-subtle);
+  border: 1px solid var(--aa-border);
+  border-radius: var(--aa-radius-l);
+  padding: var(--aa-padding-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-s);
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────────── */
+.aa-landing .aa-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--aa-border);
+}
+
+/* ─── Module card — product-card de OSMO (portada de ATOM). Variantes ATFX ──────── */
+/* Valores OSMO: radius 1em, __before 130%, __content padding 2.5em, todo centrado. */
+.aa-landing .aa-mod-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 1em;
+  overflow: hidden;
+  background: var(--aa-navy-850); /* default */
+  color: #ffffff;
+}
+.aa-landing .aa-mod-card--accent   { background: var(--aa-color-cyan);     color: var(--aa-navy-900); }
+.aa-landing .aa-mod-card--gradient { background: var(--aa-blue-700); color: #ffffff; }
+.aa-landing .aa-mod-card--light    { background: var(--aa-neutral-100);    color: var(--aa-navy-900); }
+
+/* Spacer que fija el aspect ratio (padding-% resuelve contra el ancho de la card) */
+.aa-landing .aa-mod-card__before { padding-top: 130%; }
+
+/* Capa de contenido sobre el color */
+.aa-landing .aa-mod-card__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em;
+}
+.aa-landing .aa-mod-card__tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+.aa-landing .aa-mod-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35em 0.7em;
+  border-radius: var(--aa-radius-pill);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-family: var(--aa-font-mono);
+  font-size: var(--aa-text-xxs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Región central centrada (OSMO __center-content: flex 1, justify center, gap 1.25em) */
+.aa-landing .aa-mod-card__center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+  text-align: center;
+}
+.aa-landing .aa-mod-card__h {
+  margin: 0;
+  font-size: var(--aa-text-l);
+  font-weight: var(--aa-weight-bold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.aa-landing .aa-mod-card__p {
+  margin: 0;
+  font-size: var(--aa-text-xs);
+  line-height: 1.35;
+  text-wrap: balance;
+  opacity: 0.82;
+}
+
+@media screen and (max-width: 767px) {
+  .aa-landing .aa-mod-card__content { padding: 1.5em; }
+}

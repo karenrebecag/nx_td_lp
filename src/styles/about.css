@@ -1,0 +1,64 @@
+/* Sobre Norman — strip claro: panel flotante con texto (izq) + retrato (der).
+   Maquetación de referencia (Figma) llevada a tokens --aa-*. Breakpoints 991/767. */
+
+.aa-landing .aa-about {
+  padding-block: var(--aa-padding-m);
+}
+
+/* Panel: mismo color que el strip + sombra suave + radio */
+.aa-landing .aa-about__card {
+  background: var(--aa-bg);
+  box-shadow: var(--aa-shadow-soft);
+  border-radius: var(--aa-radius-xl);
+  padding: var(--aa-padding-m) var(--aa-gap-l);
+}
+
+.aa-landing .aa-about__row {
+  display: flex;
+  align-items: center;
+  gap: var(--aa-gap-xl);
+}
+
+/* ── Texto ───────────────────────────────────────────────────────────────────── */
+.aa-landing .aa-about__text {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--aa-gap-l);
+}
+.aa-landing .aa-about__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: var(--aa-weight-regular); /* base ligero; énfasis bold en "Tradeco Capital" */
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.aa-landing .aa-about__title-em { font-weight: var(--aa-weight-bold); }
+.aa-landing .aa-about__bio {
+  margin: 0;
+  color: var(--aa-fg);
+}
+
+/* ── Retrato (placeholder; pasa a constante R2) ──────────────────────────────── */
+.aa-landing .aa-about__media {
+  flex: none;
+  width: clamp(15rem, 28vw, 22.5rem);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--aa-radius-l);
+  display: block;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media screen and (max-width: 767px) {
+  .aa-landing .aa-about__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--aa-gap-l);
+  }
+  .aa-landing .aa-about__media {
+    order: -1; /* retrato arriba del texto en mobile */
+    width: 100%;
+  }
+}

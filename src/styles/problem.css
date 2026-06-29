@@ -1,0 +1,99 @@
+/* El Problema — strip claro: diagnóstico (izq) + stats de prueba social (der).
+   Maquetación de referencia (Figma) llevada a tokens --aa-*. Breakpoints 991/767. */
+
+.aa-landing .aa-problem {
+  padding-block: var(--aa-padding-m);
+}
+
+.aa-landing .aa-problem__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--aa-gap-xl);
+}
+
+/* ── Columna izquierda: badge + diagnóstico ─────────────────────────────────── */
+.aa-landing .aa-problem__lead {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--aa-gap-l);
+}
+.aa-landing .aa-problem__text {
+  margin: 0;
+  max-width: 34em;
+  color: var(--aa-fg);
+}
+
+/* ── Columna derecha: stats ─────────────────────────────────────────────────── */
+.aa-landing .aa-problem__stats {
+  flex: 1 1 0;
+  display: flex;
+  gap: var(--aa-gap-l);
+}
+
+/* Stat card: superficie clara flotante (patrón card del DS) */
+.aa-landing .aa-stat {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--aa-gap-m);
+  padding-block: var(--aa-padding-m);
+  background: var(--aa-bg-subtle);
+  border-radius: var(--aa-radius-xl);
+  text-align: center;
+}
+.aa-landing .aa-stat__num {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--aa-font-display);
+  font-weight: var(--aa-weight-medium);
+  line-height: var(--aa-leading-tight);
+  text-transform: uppercase;
+  color: var(--aa-fg);
+}
+.aa-landing .aa-stat__sign { font-size: var(--aa-text-m); }
+.aa-landing .aa-stat__figure { font-size: var(--aa-text-l); }
+.aa-landing .aa-stat__label {
+  font-size: var(--aa-text-s);
+  line-height: var(--aa-leading-snug);
+  color: var(--aa-fg);
+}
+
+/* Hairline de cierre (acento editorial, decorativo) */
+.aa-landing .aa-problem__rule {
+  height: 0;
+  margin-top: var(--aa-gap-l);
+  border-top: 1px solid var(--aa-border);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  .aa-landing .aa-problem__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--aa-gap-l);
+  }
+  .aa-landing .aa-problem__rule { display: none; }
+}
+
+@media screen and (max-width: 767px) {
+  /* Stats pasan de card a ítem con borde inferior, 2 por fila, alineados a la izq */
+  .aa-landing .aa-problem__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--aa-gap-l);
+  }
+  .aa-landing .aa-stat {
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid var(--aa-border);
+    align-items: flex-start;
+    text-align: left;
+    padding-block: 0 var(--aa-padding-s);
+  }
+  .aa-landing .aa-stat__num { justify-content: flex-start; }
+}
