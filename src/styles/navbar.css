@@ -124,15 +124,17 @@
   display: inline-flex;
   align-items: center;
 }
-/* Logo Tradeco (SVG): monocromo vía currentColor; color por tema de la sección detrás */
-.aa-landing .aa-nav__logo--tradeco { color: var(--aa-ink-850); }
-.aa-landing .aa-nav[data-nav-theme="dark"] .aa-nav__logo--tradeco { color: var(--aa-cream); }
+/* Logo Tradeco (SVG): monocromo vía currentColor; color por tema de la sección detrás.
+   Especificidad subida (.aa-nav anidado) + !important: el host (Elementor) inyecta
+   reglas globales sobre svg/path que pisan el fill; esto las gana. */
+.aa-landing .aa-nav .aa-nav__logo--tradeco { color: var(--aa-ink-850) !important; }
+.aa-landing .aa-nav[data-nav-theme="dark"] .aa-nav__logo--tradeco { color: var(--aa-cream) !important; }
 .aa-landing .aa-nav__logo--tradeco svg {
   display: block;
   width: auto;
   height: 4.5em;
 }
-.aa-landing .aa-nav__logo--tradeco svg path { fill: currentColor; }
+.aa-landing .aa-nav .aa-nav__logo--tradeco svg path { fill: currentColor !important; }
 
 .aa-landing .aa-nav__cta {
   pointer-events: auto;
