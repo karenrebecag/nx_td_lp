@@ -7,5 +7,5 @@ export const HERO = {
   ctaLabel: 'QUIERO UNIRME AL GRUPO GRATIS',
   ctaHref: '#join',
   support: 'Sin costo. Sin compromiso. Solo haz clic y entra.',
-  mediaAlt: 'Fernanda Quirama',
+  mediaAlt: 'Trader analizando gráficos de Oro y US30',
 };
