@@ -41,12 +41,15 @@
 /* Título: editorial uppercase, peso base ligero con énfasis bold en el remate */
 .aa-landing .aa-hero__title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
 }
-.aa-landing .aa-hero__title-em { font-weight: var(--aa-weight-bold); }
+.aa-landing .aa-hero__title-em {
+  font-style: italic;
+  color: var(--aa-accent);
+  font-weight: var(--aa-weight-bold);
+}
 
 .aa-landing .aa-hero__sub {
   margin: 0;
@@ -59,6 +62,12 @@
   flex-wrap: wrap;
   gap: var(--aa-gap-s);
   margin-top: var(--aa-gap-xs);
+}
+
+.aa-landing .aa-hero__support {
+  margin: 0;
+  color: color-mix(in srgb, var(--aa-fg-muted) 45%, transparent);
+  letter-spacing: 0.04em;
 }
 
 /* ── Honeycomb: decorativo top-right del panel, detrás del contenido ─────────── */

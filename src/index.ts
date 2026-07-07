@@ -4,9 +4,9 @@
 //        data-aa-lang="es|en"></div>
 //
 //   <script data-cfasync="false"
-//     src="https://cdn.jsdelivr.net/gh/karenrebecag/TC_NLP@latest/loader.js"></script>
-const _v = document.querySelector<HTMLScriptElement>('script[src*="TC_NLP@"]')?.src.match(/TC_NLP@([^/]+)/)?.[1] ?? 'dev';
-console.log(`[tradeco-norman-lp] v${_v} loaded`);
+//     src="https://cdn.jsdelivr.net/gh/karenrebecag/nx_td_lp@latest/loader.js"></script>
+const _v = document.querySelector<HTMLScriptElement>('script[src*="nx_td_lp@"]')?.src.match(/nx_td_lp@([^/]+)/)?.[1] ?? 'dev';
+console.log(`[nexus-lp] v${_v} loaded`);
 
 import { type Theme, type Lang } from './core/types';
 import { initMotion } from './ui/motion';
@@ -17,10 +17,11 @@ import { initParallax } from './ui/parallax';
 import { initDirectionalHover } from './ui/directional-hover';
 import { renderHero } from './sections/hero';
 import { initHeroGallery } from './ui/hero-gallery';
-import { renderProblemSection } from './sections/problem';
 // import { renderLearnSection } from './sections/learn'; // "Cómo funciona" fuera del layout (sección conservada)
 import { renderAboutSection } from './sections/about';
 import { renderBenefitsSection } from './sections/benefits';
+import { renderEcosystemSection } from './sections/ecosystem';
+import { renderJoinSection } from './sections/join';
 import { renderFooterSection } from './sections/footer';
 import { initAccordion } from './ui/accordion';
 import { initPillarSlider } from './ui/pillar-slider';
@@ -31,7 +32,6 @@ import { initButton018 } from './ui/button018';
 import { initDriftGallery } from './ui/drift-gallery';
 import { initNumberOdometer } from './ui/odometer';
 import { initGsapSlider } from './ui/gsap-slider';
-import { initTestimonials } from './ui/testimonials';
 import { initMetaPixel } from './ui/meta-pixel';
 
 // Scroll suave para anclas internas (#id) sin tocar CSS global de Elementor.
@@ -75,10 +75,11 @@ function boot(): void {
     renderScrollProgress(root);
     renderNavbar(root);
     renderHero(root);
-    renderProblemSection(root);
+    renderAboutSection(root);
     renderBenefitsSection(root);
     // renderLearnSection(root); // "Cómo funciona" fuera del layout (sección conservada)
-    renderAboutSection(root);
+    renderEcosystemSection(root);
+    renderJoinSection(root);
     renderFooterSection(root);
 
     mount.replaceChildren(root);
@@ -103,7 +104,6 @@ function boot(): void {
     initNumberOdometer();
     initHeroGallery(root);
     initGsapSlider(root);
-    initTestimonials(root);
 
     // Re-mide el slider (slides-per-view/bounds dependen del ancho) al cambiar el viewport.
     let sliderResize: number | undefined;

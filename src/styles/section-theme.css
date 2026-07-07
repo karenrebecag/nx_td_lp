@@ -8,9 +8,9 @@
   --aa-bg:        var(--aa-ink-850);
   --aa-bg-subtle: var(--aa-ink-800);
   --aa-fg:        var(--aa-cream);
-  --aa-fg-muted:  rgba(243, 239, 230, 0.62);
-  --aa-fg-subtle: rgba(243, 239, 230, 0.40);
-  --aa-border:    rgba(243, 239, 230, 0.08);
+  --aa-fg-muted:  rgba(224, 224, 224, 0.78);
+  --aa-fg-subtle: rgba(224, 224, 224, 0.36);
+  --aa-border:    rgba(201, 151, 58, 0.18);
   --aa-input-bg:  var(--aa-ink-700);
 }
 
@@ -20,9 +20,9 @@
   --aa-bg:        var(--aa-paper);
   --aa-bg-subtle: #ffffff;
   --aa-fg:        var(--aa-ink-850);
-  --aa-fg-muted:  rgba(17, 21, 28, 0.66);
-  --aa-fg-subtle: rgba(17, 21, 28, 0.45);
-  --aa-border:    rgba(17, 21, 28, 0.12);
+  --aa-fg-muted:  rgba(11, 22, 40, 0.66);
+  --aa-fg-subtle: rgba(11, 22, 40, 0.45);
+  --aa-border:    rgba(11, 22, 40, 0.12);
   --aa-input-bg:  #fffdf8;
 }
 

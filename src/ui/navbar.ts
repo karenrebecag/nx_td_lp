@@ -4,28 +4,25 @@
 // light (initNavbar detecta la sección bajo la barra y setea data-nav-theme).
 
 import { renderButton } from './atoms/button';
+import { renderNexusNavLogo } from './atoms/logo';
 import { NAV_CTA } from '../constants/nav';
-import { TRADECO_LOGO } from '../constants/icons';
 
 export function renderNavbar(root: Element): void {
   const nav = document.createElement('nav');
   nav.className = 'aa-nav';
   nav.setAttribute('aria-label', 'Marca');
   nav.setAttribute('data-nav-theme', 'dark'); // el hero arranca dark
+  nav.setAttribute('data-nav-logo', 'gold'); // top0 → logo gold
 
   const logos = document.createElement('div');
   logos.className = 'aa-nav__logos';
-
-  // Logo Tradeco (mismo del footer); monocromo themeable por data-nav-theme.
-  const logo = document.createElement('span');
-  logo.className = 'aa-nav__logo aa-nav__logo--tradeco';
-  logo.setAttribute('aria-label', 'Tradeco Capital');
-  logo.innerHTML = TRADECO_LOGO;
-  logos.appendChild(logo);
+  logos.appendChild(renderNexusNavLogo());
 
   const cta = document.createElement('div');
   cta.className = 'aa-nav__cta';
-  cta.appendChild(renderButton({ href: NAV_CTA.href, label: NAV_CTA.label, variant: 'primary', size: 'sm', target: '_blank' }));
+  cta.appendChild(
+    renderButton({ href: NAV_CTA.href, label: NAV_CTA.label, variant: 'primary', size: 'sm' }),
+  );
 
   nav.append(logos, cta);
   root.appendChild(nav);
@@ -49,10 +46,15 @@ export function initNavbar(root: Element): void {
     // los strips full-width. closest() sube hasta el ancestro con data-aa-section-theme.
     const el = document.elementFromPoint(window.innerWidth / 2, topbarBottom + 18);
     const section = el?.closest<HTMLElement>('[data-aa-section-theme]');
-    nav.setAttribute('data-nav-theme', section?.getAttribute('data-aa-section-theme') ?? 'light');
+    const theme = section?.getAttribute('data-aa-section-theme') ?? 'light';
+    nav.setAttribute('data-nav-theme', theme);
 
     // Hide on scroll down (y no-top) · show en top y scroll up.
     const y = window.scrollY;
+
+    // Logo: gold en top0; white sobre dark; black sobre light.
+    const atTop = y <= 80 || section?.id === 'top';
+    nav.setAttribute('data-nav-logo', atTop ? 'gold' : theme === 'dark' ? 'white' : 'black');
     if (y <= 4) nav.classList.remove('aa-nav--hidden');
     else if (y > lastY + 2 && y > 80) nav.classList.add('aa-nav--hidden');
     else if (y < lastY - 2) nav.classList.remove('aa-nav--hidden');

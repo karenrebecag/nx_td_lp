@@ -43,7 +43,7 @@
 
 /* Variantes por color (mapeadas a tokens del DS) */
 /* primary = CTA a Telegram → naranja ATFX (resalta más que el gold de acción) */
-.aa-landing .aa-button--primary { --aa-btn-color: #ffffff; --aa-btn-bg: var(--aa-orange-500); }
+.aa-landing .aa-button--primary { --aa-btn-color: var(--aa-on-highlight); --aa-btn-bg: var(--aa-highlight); }
 .aa-landing .aa-button--secondary { --aa-btn-color: var(--aa-bg); --aa-btn-bg: var(--aa-fg); }
 .aa-landing .aa-button--ghost { --aa-btn-color: var(--aa-fg); --aa-btn-bg: transparent; }
 .aa-landing .aa-button--ghost .aa-button__bg { border: 1.5px solid var(--aa-border); }

@@ -3,7 +3,7 @@
 // apuntando al tag inmutable correcto, evitando el cache agresivo de assets en @latest.
 (function () {
   var v = "1.0.0";
-  var base = "https://cdn.jsdelivr.net/gh/karenrebecag/TC_NLP";
+  var base = "https://cdn.jsdelivr.net/gh/karenrebecag/nx_td_lp";
 
   var css = document.createElement("link");
   css.rel = "stylesheet";

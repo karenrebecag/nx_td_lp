@@ -11,6 +11,16 @@
 .aa-landing .aa-container.is--sm { max-width: calc(var(--aa-container-max) * 0.65); }
 .aa-landing .aa-container.is--s  { max-width: calc(var(--aa-container-max) * 0.5); }
 
+/* Stack centrado — usa el ancho del container; no añade max-width propio. */
+.aa-landing .aa-stack-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--aa-gap-l);
+  width: 100%;
+}
+
 /* ─── Card container — superficie flotante (patrón "card" de ATOM). El color de
    fondo lo define cada sección (cada FAQ lo recolorea a navy). En <768px se vuelve
    strip: full-bleed, sin radio. */

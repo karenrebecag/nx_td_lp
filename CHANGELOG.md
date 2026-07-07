@@ -10,6 +10,10 @@ Versionado: el CI de release etiqueta `vX.Y.Z` por push a `main` (cuando se cone
   Mount Point Pattern). Git desconectado.
 - `RELUME-BRIEF.md`: directrices de marca para Relume (primitivos, semánticos, prompts
   de sitemap, patrones, copys declarativos).
+- Strip **Ecosistema Nexus** (`#ecosistema`): header + 2 cards Live/Copy Trading con
+  listas de beneficios (referencia Relume Layout 360 + Pricing 10).
+- Strip **Final CTA** (`#join`): sección independiente con CTA a Telegram (referencia
+  Relume CTA 25). Navbar apunta a `#join`.
 
 ### Changed
 - Rebrand a **Tradeco/Norman** desde la marca dictada por el HTML de la agencia:
@@ -20,6 +24,8 @@ Versionado: el CI de release etiqueta `vX.Y.Z` por push a `main` (cuando se cone
   - Default theme del mount → `dark`.
   - Refs de identidad (`package.json`, `loader.js`, `index.ts`, `preview.html`, `CLAUDE.md`)
     de `TC_NLP` → `TC_NLP`.
+- Footer: CTA final movido a strip `#join`; el footer queda testimonios + logo + legal.
+- Navbar CTA: ancla `#join` con label "Unirme gratis".
 
 ### Pending
 - Tracking Meta Pixel + Conversion API: archivo de la agencia no recibido; cablear con

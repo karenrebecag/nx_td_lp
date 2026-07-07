@@ -27,26 +27,25 @@
   --aa-neutral-900: #171717;
   --aa-neutral-950: #0a0a0a;
 
-  /* ════ PRIMITIVOS — Tradeco/Norman (marca dictada por la agencia) ═══════════ */
-  /* Ink / carbón — escala de superficie dark, declarada page→overlay. Es el
-     "layering" del dark mode: cada paso sube un nivel de elevación. */
-  --aa-ink-900: #0c0f15; /* negativo / sombra bajo page */
-  --aa-ink-850: #11151c; /* PAGE — fondo base de la marca */
-  --aa-ink-800: #161b24; /* surface — cards, strips alternos */
-  --aa-ink-700: #1b212b; /* elevated — card sobre surface */
-  --aa-ink-600: #222a35; /* overlay — navbar blur, popovers */
-  --aa-ink-650: #212530; /* card de footer (testimonio / CTA final) */
+  /* ════ PRIMITIVOS — Nexus Trading Group ═════════════════════════════════════ */
+  /* Navy — escala de superficie dark, declarada page→overlay. */
+  --aa-ink-900: #060d1b; /* negativo / footer */
+  --aa-ink-850: #0b1628; /* PAGE — fondo base de la marca */
+  --aa-ink-800: #091420; /* surface — cards, strips alternos */
+  --aa-ink-700: #0d1e38; /* elevated — card sobre surface */
+  --aa-ink-600: #132238; /* overlay — navbar, popovers */
+  --aa-ink-650: #060d1b; /* card de footer (testimonio / CTA final) */
 
-  /* Cream — tinta cálida sobre dark */
-  --aa-cream: #f3efe6;
+  /* Cream — alias de fg primario (blanco frío sobre dark) */
+  --aa-cream: #ffffff;
 
   /* Paper — superficie base de los strips claros (light mode) */
   --aa-paper: #f6f7f9;
 
   /* Gold — HIGHLIGHT: único color de acción (CTA, links, números, eyebrow) */
-  --aa-gold-500:  #c99b4a; /* base */
-  --aa-gold-400:  #d6aa5b; /* hover */
-  --aa-gold-weak: rgba(201, 155, 74, 0.14); /* chips, glow, borde activo */
+  --aa-gold-500:  #c9973a; /* base */
+  --aa-gold-400:  #d4a843; /* hover */
+  --aa-gold-weak: rgba(201, 151, 58, 0.18); /* chips, glow, borde activo */
 
   /* Orange — ATFX: HIGHLIGHT nuevo (único color de acción: CTA, links, acentos) */
   --aa-orange-500: #f2672a;
@@ -57,17 +56,15 @@
      Nunca compite con el CTA. */
   --aa-teal-500: #4fa89b;
 
-  /* Acentos de sección — cards "Lo que encontrarás" (paleta dictada por la agencia):
-     slate para el badge; teal profundo para la card clara; menta para su gradiente;
-     sombras "apiladas" (offset duro) cálida/fría para las cards oscuras. */
-  --aa-slate-100:   #ebeef3; /* badge claro "Sobre Norman" — fondo */
-  --aa-lavender-200: #dde5fb; /* badge claro "La comunidad habla" — fondo */
-  --aa-slate-500:   #607797;
-  --aa-slate-700:   #364256; /* badge "Cómo funciona" — slate más profundo */
-  --aa-teal-900:    #2d4242;
-  --aa-mint-200:    #ddeae8;
-  --aa-shadow-warm: #4d3f2f;
-  --aa-shadow-cool: #d3dae4;
+  /* Acentos de sección — armonizados con navy + gold */
+  --aa-slate-100:   #eef0f4;
+  --aa-lavender-200: #f0ebe0;
+  --aa-slate-500:   #5a6b85;
+  --aa-slate-700:   #2a3548;
+  --aa-teal-900:    #0d1e38;
+  --aa-mint-200:    #e8e8e8;
+  --aa-shadow-warm: #3d3428;
+  --aa-shadow-cool: #c5cdd8;
 
   /* Estado de error — color funcional, fuera de la paleta de marca */
   --aa-color-coral: #f84131;
@@ -95,19 +92,18 @@
   --aa-bg-elevated: var(--aa-ink-700);
   --aa-bg-overlay:  var(--aa-ink-600);
 
-  /* Tinta — muted/subtle derivados del fg con alpha = armonía de temperatura */
+  /* Tinta — muted/subtle derivados del fg con alpha */
   --aa-fg:            var(--aa-cream);
-  --aa-fg-muted:      rgba(243, 239, 230, 0.62);
-  --aa-fg-subtle:     rgba(243, 239, 230, 0.40);
-  --aa-border:        rgba(243, 239, 230, 0.08);
-  --aa-border-strong: rgba(243, 239, 230, 0.14);
+  --aa-fg-muted:      rgba(224, 224, 224, 0.78);
+  --aa-fg-subtle:     rgba(224, 224, 224, 0.36);
+  --aa-border:        rgba(201, 151, 58, 0.18);
+  --aa-border-strong: rgba(201, 151, 58, 0.28);
 
-  /* Highlight (orange ATFX) — cluster semántico de acción. El gold queda retirado
-     de la paleta; orange es ahora el único color de acción. */
-  --aa-highlight:       var(--aa-orange-500);
-  --aa-highlight-hover: var(--aa-orange-600);
-  --aa-highlight-weak:  var(--aa-orange-weak);
-  --aa-on-highlight:    #ffffff;
+  /* Highlight (gold) — cluster semántico de acción */
+  --aa-highlight:       var(--aa-gold-500);
+  --aa-highlight-hover: var(--aa-gold-400);
+  --aa-highlight-weak:  var(--aa-gold-weak);
+  --aa-on-highlight:    var(--aa-ink-850);
 
   /* Support (teal) — soporte, no acción */
   --aa-support: var(--aa-teal-500);
@@ -160,9 +156,9 @@
   --aa-stagger: 0.05s;
 
   /* ─── Typography ──────────────────────────────────────────────────────────── */
-  --aa-font:         'Chivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --aa-font-display: 'Chivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --aa-font-mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+  --aa-font:         'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --aa-font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --aa-font-mono:    'Geist', ui-monospace, 'Cascadia Code', monospace;
 
   /* Escala basada en --aa-size-font (base fluida px de .aa-landing) en vez de rem, para
      ser INDEPENDIENTE del font-size del <html> del sitio WP (temas con root 62.5% achicaban

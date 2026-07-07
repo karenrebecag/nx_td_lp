@@ -2,7 +2,7 @@
 // público por naturaleza (viaja en el cliente). El token de la Conversions API es un
 // SECRETO y NO va aquí: el bundle es público en jsDelivr y no hay servidor para CAPI.
 
-const META_PIXEL_ID = '893138089766206';
+const META_PIXEL_ID = '1641647160819573';
 
 // fbq mínimo (snippet oficial de Meta portado a TS, idempotente).
 function loadFbevents(): void {

@@ -31,18 +31,49 @@
   gap: var(--aa-gap-xl);
 }
 
+.aa-landing .aa-footer__inner--nexus {
+  align-items: center;
+  text-align: center;
+  gap: var(--aa-gap-l);
+}
+.aa-landing .aa-footer__brand {
+  margin-bottom: var(--aa-gap-xs);
+}
+.aa-landing .aa-footer__cta {
+  margin-bottom: var(--aa-gap-m);
+}
+.aa-landing .aa-footer__divider {
+  width: min(100%, 37.5rem);
+  height: 1px;
+  background: color-mix(in srgb, var(--aa-accent) 10%, transparent);
+  margin-bottom: var(--aa-gap-m);
+}
+.aa-landing .aa-footer__inner--nexus .aa-footer__legal {
+  padding-top: 0;
+  border-top: 0;
+  max-width: 43.75rem;
+}
+.aa-landing .aa-footer__copyright {
+  margin: var(--aa-gap-s) 0 0;
+  font-size: var(--aa-text-xs);
+  line-height: var(--aa-leading-normal);
+  color: color-mix(in srgb, var(--aa-fg-muted) 22%, transparent);
+  letter-spacing: 0.07em;
+}
+
 .aa-landing .aa-footer__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--aa-gap-m);
 }
-/* Logo Tradeco (SVG inlineado) */
-.aa-landing .aa-footer__logo--tradeco { display: block; }
-.aa-landing .aa-footer__logo--tradeco svg {
+/* Logo Nexus (footer dark → white) */
+.aa-landing .aa-footer__logo--nexus { display: block; }
+.aa-landing .aa-footer__logo-img {
   display: block;
   width: auto;
   height: 3em;
+  object-fit: contain;
 }
 
 .aa-landing .aa-footer__col {
@@ -236,28 +267,3 @@
 /* Chevron base apunta abajo; se rota a left/right por botón */
 .aa-landing .aa-tm__btn--prev svg { transform: rotate(90deg); }
 .aa-landing .aa-tm__btn--next svg { transform: rotate(-90deg); }
-
-/* ════ CTA final ════════════════════════════════════════════════════════════════ */
-.aa-landing .aa-footer__cta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--aa-gap-l);
-  background: var(--aa-ink-650);
-  border-radius: var(--aa-radius-xl);
-  padding: var(--aa-padding-m);
-}
-.aa-landing .aa-footer__cta-title {
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
-  letter-spacing: 0;
-  color: var(--aa-fg);
-  text-wrap: balance;
-}
-.aa-landing .aa-footer__cta-title-em { font-weight: var(--aa-weight-bold); }
-.aa-landing .aa-footer__cta-copy {
-  margin: 0;
-  max-width: 44ch;
-  color: var(--aa-fg);
-}

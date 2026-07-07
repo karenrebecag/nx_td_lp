@@ -1,0 +1,135 @@
+/* Ecosistema Nexus — strip dark: header centrado + grid 2 cards (Layout 360 + list checks).
+   Tokens --aa-*. Breakpoints 991/767. */
+
+.aa-landing .aa-eco {
+  padding-block: var(--aa-padding-m);
+}
+
+.aa-landing .aa-eco__head {
+  width: 100%;
+  margin-bottom: var(--aa-gap-xl);
+}
+
+.aa-landing .aa-eco__head-title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: var(--aa-weight-regular);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.aa-landing .aa-eco__head-title-em {
+  font-style: italic;
+  color: var(--aa-accent);
+  font-weight: var(--aa-weight-bold);
+}
+
+.aa-landing .aa-eco__head-desc {
+  margin: 0;
+  color: var(--aa-fg-muted);
+}
+
+.aa-landing .aa-eco__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--aa-gap-m);
+}
+
+.aa-landing .aa-eco__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--aa-bg-subtle);
+  border: 1px solid var(--aa-border);
+  border-radius: var(--aa-radius-xl);
+  overflow: hidden;
+}
+
+.aa-landing .aa-eco__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--aa-gap-m);
+  padding: var(--aa-padding-m) var(--aa-gap-l);
+}
+
+.aa-landing .aa-eco__tagline {
+  margin: 0;
+  font-size: var(--aa-text-xxs);
+  font-weight: var(--aa-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--aa-accent);
+}
+
+.aa-landing .aa-eco__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: var(--aa-weight-regular);
+  text-wrap: balance;
+}
+.aa-landing .aa-eco__title-em { font-weight: var(--aa-weight-bold); }
+
+.aa-landing .aa-eco__desc {
+  margin: 0;
+  color: var(--aa-fg-muted);
+}
+
+.aa-landing .aa-eco__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--aa-gap-s);
+  width: 100%;
+}
+
+.aa-landing .aa-eco__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--aa-gap-s);
+}
+
+.aa-landing .aa-eco__check {
+  flex: none;
+  display: inline-flex;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.15em;
+  color: var(--aa-support);
+}
+.aa-landing .aa-eco__check svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.aa-landing .aa-eco__feature-text {
+  font-size: var(--aa-text-s);
+  line-height: var(--aa-leading-normal);
+  color: var(--aa-fg);
+}
+
+.aa-landing .aa-eco__media {
+  margin-top: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.aa-landing .aa-eco__media-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 991px) {
+  .aa-landing .aa-eco__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aa-landing .aa-eco__card-body {
+    padding: var(--aa-gap-l);
+  }
+}

@@ -12,8 +12,20 @@ export const ASSETS = {
 // Runtime de Spline vía CDN (no npm). Se inyecta solo si hay una <spline-viewer> montada.
 export const SPLINE_RUNTIME = 'https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js';
 
-// Assets Tradeco/Norman. En local se sirven desde /public; al publicar se migran a CDN
-// o se referencian por la ruta raw del repo en jsDelivr.
+// Logos Nexus. En local se sirven desde /public; al publicar se migran a CDN o jsDelivr.
+export const NEXUS = {
+  logoGold: '/public/nexus/logo-gold.webp',
+  logoBlack: '/public/nexus/logo-black.webp',
+  logoWhite: '/public/nexus/logo-white.webp',
+  heroMedia:
+    `${CDN}/technology-stock-market-graph-on-computer-2026-01-09-01-20-48-utc_c9b8fa35f30a52270d9cb88f2d7ed645f9527156fd63120acad99f0c4e5f3151.webp`,
+  liveTradingMedia:
+    `${CDN}/cheerful-young-man-in-shirt-and-tie-shouting-and-g-2026-01-08-02-39-26-utc_e07c59eed2179114bea87eb2e7e212e5bac72d79347ec247030fa76e204f7d4f.webp`,
+  copyTradingMedia:
+    `${CDN}/relaxed-trader-reviews-stock-charts-on-computers-2026-03-24-23-35-40-utc_98121d11f26b4678af11545274fc13645583aabf9c895cb67a4999cab2b26efd.webp`,
+};
+
+// Assets legacy Tradeco/Norman (reemplazar al migrar secciones de contenido).
 export const TRADECO = {
   logoFull: '/public/tradeco/logo-full.jpg',
   logoMark: '/public/tradeco/logo-mark.png',
@@ -22,4 +34,4 @@ export const TRADECO = {
 };
 
 // CTA único del funnel: Ads → LP → Telegram.
-export const TELEGRAM_URL = 'https://t.me/TradecoCapital_Free';
+export const TELEGRAM_URL = 'https://t.me/+NNS3WGnB-cxhZTgx';

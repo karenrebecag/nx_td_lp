@@ -38,6 +38,10 @@ export const ICON_CHEVRON = `<svg width="24" height="24" viewBox="0 0 24 24" fil
 <path d="M5 9L12 16L19 9" stroke="currentColor" stroke-miterlimit="10"/>
 </svg>`;
 
+export const ICON_CHECK = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 export const ICON_DIAMONDS = `<svg width="256" height="128" viewBox="0 0 256 128" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M64 32L32 64H0V32L32 0H64V32Z" fill="#313A49"/>
 <path d="M64 96L32 128H0V96L32 64H64V96Z" fill="#313A49"/>
