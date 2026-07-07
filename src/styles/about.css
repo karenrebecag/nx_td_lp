@@ -34,7 +34,6 @@
   text-wrap: balance;
 }
 .aa-landing .aa-about__title-em {
-  font-style: italic;
   color: var(--aa-accent);
   font-weight: var(--aa-weight-bold);
 }

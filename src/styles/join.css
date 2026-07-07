@@ -12,7 +12,6 @@
   text-wrap: balance;
 }
 .aa-landing .aa-join__title-em {
-  font-style: italic;
   color: var(--aa-accent);
   font-weight: var(--aa-weight-bold);
 }
