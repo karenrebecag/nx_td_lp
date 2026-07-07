@@ -13,8 +13,12 @@
   flex: none;
 }
 .aa-landing .aa-badge__text {
+  font-family: var(--aa-font);
+  font-size: var(--aa-text-xxs);
+  font-weight: var(--aa-weight-semibold);
   color: inherit;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
 
 /* ink: oscuro sólido, tinta clara — sobre strips claros */

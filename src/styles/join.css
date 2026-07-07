@@ -6,14 +6,9 @@
 
 .aa-landing .aa-join__title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
-}
-.aa-landing .aa-join__title-em {
-  color: var(--aa-accent);
-  font-weight: var(--aa-weight-bold);
 }
 
 .aa-landing .aa-join__copy {

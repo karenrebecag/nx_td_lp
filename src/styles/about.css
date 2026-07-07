@@ -56,14 +56,9 @@
 }
 .aa-landing .aa-about__title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
-}
-.aa-landing .aa-about__title-em {
-  color: var(--aa-accent);
-  font-weight: var(--aa-weight-bold);
 }
 .aa-landing .aa-about__bio {
   margin: 0;

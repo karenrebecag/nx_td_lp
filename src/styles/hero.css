@@ -38,16 +38,12 @@
   max-width: 36rem;
 }
 
-/* Título: editorial uppercase, peso base ligero con énfasis bold en el remate */
+/* Título: Playfair editorial, énfasis en itálica dorada (referencia standalone HTML) */
 .aa-landing .aa-hero__title {
   margin: 0;
   font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
-}
-.aa-landing .aa-hero__title-em {
-  color: var(--aa-accent);
-  font-weight: var(--aa-weight-bold);
 }
 
 .aa-landing .aa-hero__sub {
@@ -113,6 +109,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 

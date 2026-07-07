@@ -12,14 +12,9 @@
 
 .aa-landing .aa-eco__head-title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
-}
-.aa-landing .aa-eco__head-title-em {
-  color: var(--aa-accent);
-  font-weight: var(--aa-weight-bold);
 }
 
 .aa-landing .aa-eco__head-desc {
@@ -61,11 +56,9 @@
 
 .aa-landing .aa-eco__title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   text-wrap: balance;
 }
-.aa-landing .aa-eco__title-em { font-weight: var(--aa-weight-bold); }
 
 .aa-landing .aa-eco__desc {
   margin: 0;

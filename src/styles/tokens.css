@@ -156,9 +156,9 @@
   --aa-stagger: 0.05s;
 
   /* ─── Typography ──────────────────────────────────────────────────────────── */
-  --aa-font:         'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --aa-font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --aa-font-mono:    'Geist', ui-monospace, 'Cascadia Code', monospace;
+  --aa-font:         'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --aa-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --aa-font-mono:    'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Escala basada en --aa-size-font (base fluida px de .aa-landing) en vez de rem, para
      ser INDEPENDIENTE del font-size del <html> del sitio WP (temas con root 62.5% achicaban

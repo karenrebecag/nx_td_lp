@@ -17,12 +17,10 @@
 }
 .aa-landing .aa-benefits__title {
   margin: 0;
-  text-transform: uppercase;
-  font-weight: var(--aa-weight-regular);
+  font-weight: var(--aa-weight-bold);
   letter-spacing: 0;
   text-wrap: balance;
 }
-.aa-landing .aa-benefits__title-em { font-weight: var(--aa-weight-bold); }
 
 /* ── Slider (OSMO "watch CSS") ────────────────────────────────────────────────── */
 .aa-landing .aa-benefits__slider {
@@ -143,9 +141,11 @@
 }
 .aa-landing .aa-bcard__title {
   margin: 0;
+  font-family: var(--aa-font-display);
   font-size: var(--aa-text-m);
-  font-weight: var(--aa-weight-medium);
+  font-weight: var(--aa-weight-semibold);
   line-height: var(--aa-leading-snug);
+  color: var(--aa-accent);
 }
 .aa-landing .aa-bcard__desc {
   margin: 0;

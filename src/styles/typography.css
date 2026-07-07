@@ -1,8 +1,23 @@
 /* atom-academy · typography. Escala híbrida clamp() — robusta dentro de Elementor. */
 
-/* Display: todos los headings usan Grift (carácter de marca). */
+/* Display: headings editoriales con Playfair (referencia standalone HTML). */
 .aa-landing :is(.aa-h-xxl, .aa-h-xl, .aa-h-l, .aa-h-ml, .aa-h-m) {
   font-family: var(--aa-font-display);
+}
+
+.aa-landing :is(
+  .aa-hero__title-em,
+  .aa-about__title-em,
+  .aa-benefits__title-em,
+  .aa-eco__head-title-em,
+  .aa-eco__title-em,
+  .aa-join__title-em,
+  .aa-steps__title-em,
+  .aa-footer__community-title-em
+) {
+  font-style: italic;
+  color: var(--aa-accent);
+  font-weight: var(--aa-weight-bold);
 }
 
 .aa-landing .aa-h-xxl {
@@ -52,7 +67,7 @@
 }
 
 .aa-landing .aa-eyebrow {
-  font-family: var(--aa-font-mono);
+  font-family: var(--aa-font);
   font-size: var(--aa-text-xxs);
   font-weight: var(--aa-weight-semibold);
   letter-spacing: 0.12em;
