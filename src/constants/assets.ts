@@ -17,7 +17,8 @@ export const NEXUS = {
   logoGold: '/public/nexus/logo-gold.webp',
   logoBlack: '/public/nexus/logo-black.webp',
   logoWhite: '/public/nexus/logo-white.webp',
-  founderPortrait: '/public/nexus/fernanda-quirama.webp',
+  founderPortrait:
+    `${CDN}/f5f28f29-b516-49ef-8f09-cf31452c881f_73c21dc5902488756136973495c438da9980917d5b7f873a98c535e601b6bc2e.webp`,
   heroMedia:
     `${CDN}/technology-stock-market-graph-on-computer-2026-01-09-01-20-48-utc_c9b8fa35f30a52270d9cb88f2d7ed645f9527156fd63120acad99f0c4e5f3151.webp`,
   liveTradingMedia:
