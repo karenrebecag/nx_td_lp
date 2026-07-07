@@ -76,6 +76,8 @@ jobs:
             "gh/karenrebecag/nx_td_lp@main/loader.js"
             "gh/karenrebecag/nx_td_lp@latest/dist/landing.js"
             "gh/karenrebecag/nx_td_lp@latest/dist/landing.css"
+            "gh/karenrebecag/nx_td_lp@main/dist/landing.js"
+            "gh/karenrebecag/nx_td_lp@main/dist/landing.css"
             "gh/karenrebecag/nx_td_lp@${tag}/loader.js"
             "gh/karenrebecag/nx_td_lp@${tag}/dist/landing.js"
             "gh/karenrebecag/nx_td_lp@${tag}/dist/landing.css"
