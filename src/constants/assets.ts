@@ -18,9 +18,9 @@ export const NEXUS = {
   logoBlack: '/public/nexus/logo-black.webp',
   logoWhite: '/public/nexus/logo-white.webp',
   founderPortrait:
-    `${CDN}/sadasdsa_66eb0112b04ac88f2f1ec30cc3a3b09be6db7da4bb1701c0c40df1bc30502486.webp`,
+    '/public/nexus/sadasdsa_66eb0112b04ac88f2f1ec30cc3a3b09be6db7da4bb1701c0c40df1bc30502486.webp',
   heroMedia:
-    `${CDN}/sdas_143431677fdc10179ed159c51357f46cd7c6b5054cf16eaf7e676aaf6e69fb99.webp`,
+    '/public/nexus/sdas_143431677fdc10179ed159c51357f46cd7c6b5054cf16eaf7e676aaf6e69fb99.webp',
   liveTradingMedia:
     `${CDN}/cheerful-young-man-in-shirt-and-tie-shouting-and-g-2026-01-08-02-39-26-utc_e07c59eed2179114bea87eb2e7e212e5bac72d79347ec247030fa76e204f7d4f.webp`,
   copyTradingMedia:
