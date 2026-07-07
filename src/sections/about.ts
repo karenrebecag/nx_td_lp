@@ -1,6 +1,7 @@
 import { renderContainer } from '../ui/layout';
 import { renderBadge } from '../ui/atoms/badge';
 import { ABOUT } from '../constants/about';
+import { NEXUS } from '../constants/assets';
 
 export function renderAboutSection(root: Element): void {
   const section = document.createElement('section');
@@ -40,7 +41,18 @@ export function renderAboutSection(root: Element): void {
 
   textCol.prepend(badge, title);
 
-  row.appendChild(textCol);
+  const mediaCol = document.createElement('div');
+  mediaCol.className = 'aa-about__media';
+  mediaCol.setAttribute('data-aa-fade', '');
+  const portrait = document.createElement('img');
+  portrait.className = 'aa-about__media-img';
+  portrait.src = NEXUS.founderPortrait;
+  portrait.alt = 'Fernanda Quirama';
+  portrait.loading = 'lazy';
+  portrait.decoding = 'async';
+  mediaCol.appendChild(portrait);
+
+  row.append(mediaCol, textCol);
   card.appendChild(row);
 
   section.appendChild(renderContainer({ children: [card] }));
