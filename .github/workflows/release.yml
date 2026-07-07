@@ -68,6 +68,26 @@ jobs:
           git push origin HEAD:main
           git push origin ${{ steps.tag.outputs.next }}
 
-      - name: Purge jsDelivr (loader en @latest)
+      - name: Purge jsDelivr cache
         run: |
-          curl -s "https://purge.jsdelivr.net/gh/karenrebecag/nx_td_lp@latest/loader.js" || true
+          tag="${{ steps.tag.outputs.next }}"
+          paths=(
+            "gh/karenrebecag/nx_td_lp@latest/loader.js"
+            "gh/karenrebecag/nx_td_lp@main/loader.js"
+            "gh/karenrebecag/nx_td_lp@latest/dist/landing.js"
+            "gh/karenrebecag/nx_td_lp@latest/dist/landing.css"
+            "gh/karenrebecag/nx_td_lp@${tag}/loader.js"
+            "gh/karenrebecag/nx_td_lp@${tag}/dist/landing.js"
+            "gh/karenrebecag/nx_td_lp@${tag}/dist/landing.css"
+          )
+          for path in "${paths[@]}"; do
+            for attempt in 1 2 3 4 5; do
+              result=$(curl -s "https://purge.jsdelivr.net/${path}")
+              echo "${path} (attempt ${attempt}): ${result}"
+              if echo "$result" | grep -q '"throttled":true'; then
+                sleep 45
+              else
+                break
+              fi
+            done
+          done
