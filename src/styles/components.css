@@ -81,16 +81,15 @@
   will-change: transform;
   transition: scale 0.4s var(--aa-btn-ease-hover);
 }
-/* Icono trailing: chevron base (down) rotado a chevron-right */
+/* Icono leading: Telegram antes del label */
 .aa-landing .aa-button__icon {
   display: inline-flex;
   flex: none;
 }
 .aa-landing .aa-button__icon svg {
   display: block;
-  width: 0.9em;
-  height: 0.9em;
-  transform: rotate(-90deg);
+  width: 1.1em;
+  height: 1.1em;
 }
 /* Fondo: capa que se escala (no el botón entero) → el contenido no se deforma */
 .aa-landing .aa-button__bg {

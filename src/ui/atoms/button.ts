@@ -2,7 +2,7 @@
 // en hover según un incremento en px (ancho/alto), y el label escala 1.025. El cálculo de
 // escala lo hace initButton018() leyendo el tamaño real; la animación vive en el CSS.
 
-import { ICON_CHEVRON } from '../../constants/icons';
+import { ICON_TELEGRAM } from '../../constants/icons';
 
 export interface ButtonOptions {
   label: string;
@@ -37,18 +37,18 @@ export function renderButton(opts: ButtonOptions): HTMLElement {
   const inner = document.createElement('span');
   inner.className = 'aa-button__inner';
 
-  const text = document.createElement('span');
-  text.className = 'aa-button__text';
-  text.textContent = label;
-  inner.appendChild(text);
-
   if (icon) {
     const iconEl = document.createElement('span');
     iconEl.className = 'aa-button__icon';
     iconEl.setAttribute('aria-hidden', 'true');
-    iconEl.innerHTML = ICON_CHEVRON;
+    iconEl.innerHTML = ICON_TELEGRAM;
     inner.appendChild(iconEl);
   }
+
+  const text = document.createElement('span');
+  text.className = 'aa-button__text';
+  text.textContent = label;
+  inner.appendChild(text);
 
   el.append(bg, inner);
   return el;
