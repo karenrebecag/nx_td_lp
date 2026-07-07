@@ -1,8 +1,8 @@
-# TC_NLP
+# nx_td_lp
 
-Landing page de **Influencer Boost (Tradeco Capital / Norman)**. Funnel **Ads → LP →
+Landing page de **Nexus Trading Group (Influencer Boost)**. Funnel **Ads → LP →
 Telegram**, sin formulario. La lógica y los estilos se sirven vía **jsDelivr**; **el host
-(Hostinger/Elementor) solo aporta un punto de montaje**.
+(Cloudflare Pages / Elementor) solo aporta un punto de montaje**.
 
 Build: esbuild + TypeScript + GSAP. Marca dictada por el HTML de la agencia, corregida y
 tokenizada (ver `RELUME-BRIEF.md` y `CLAUDE.md`). El layout lo diseña Relume.
@@ -15,7 +15,7 @@ Pega esto en un widget **HTML** (no en un widget Form):
 <div data-aa-mount data-aa-theme="dark" data-aa-lang="es"></div>
 
 <script data-cfasync="false" data-wpmeteor-nooptimize="true"
-  src="https://cdn.jsdelivr.net/gh/karenrebecag/TC_NLP@latest/loader.js"></script>
+  src="https://cdn.jsdelivr.net/gh/karenrebecag/nx_td_lp@latest/loader.js"></script>
 ```
 
 Atributos del mount:
@@ -26,7 +26,7 @@ Atributos del mount:
 
 ```
 push main → CI (.github/workflows/release.yml): typecheck + build + tag patch +
-            regenera loader.js + commitea dist + purga jsDelivr @latest
+            regenera loader.js + commitea dist + purga nx_td_lp@latest en jsDelivr
 loader.js @latest → inyecta el tag inmutable @vX.Y.Z (CSS + JS)
 ```
 
