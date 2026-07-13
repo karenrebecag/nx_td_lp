@@ -20,11 +20,11 @@ export const NEXUS = {
   founderPortrait:
     '/public/nexus/sadasdsa_66eb0112b04ac88f2f1ec30cc3a3b09be6db7da4bb1701c0c40df1bc30502486.webp',
   heroMedia:
-    '/public/nexus/sdas_143431677fdc10179ed159c51357f46cd7c6b5054cf16eaf7e676aaf6e69fb99.webp',
+    `${CDN}/image00001_6d7811285ccf764ff510b3aa068546c68e933873dbf912e8898cd14dc5ea32cc.webp`,
   liveTradingMedia:
-    `${CDN}/cheerful-young-man-in-shirt-and-tie-shouting-and-g-2026-01-08-02-39-26-utc_e07c59eed2179114bea87eb2e7e212e5bac72d79347ec247030fa76e204f7d4f.webp`,
+    `${CDN}/image00002_b7ea065e60372793214f7cd86ef8b10dd3796981da39dd4a6cc4058d198e320f.webp`,
   copyTradingMedia:
-    `${CDN}/relaxed-trader-reviews-stock-charts-on-computers-2026-03-24-23-35-40-utc_98121d11f26b4678af11545274fc13645583aabf9c895cb67a4999cab2b26efd.webp`,
+    `${CDN}/image00055_8e8bbfac5a8340ab5ba8b5c48a05fd9193c8895d73fdf20a7ada205b2edf78f0.webp`,
 };
 
 // Assets legacy Tradeco/Norman (reemplazar al migrar secciones de contenido).

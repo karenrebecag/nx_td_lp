@@ -27,16 +27,4 @@ export const BENEFITS_CARDS: BenefitCardData[] = [
     title: 'Educación continua',
     desc: 'Metodología y formación accesible para todos los niveles, desde cero hasta trader en desarrollo.',
   },
-  {
-    variant: 'dark',
-    shadow: 'cool',
-    title: 'Webinars y sesiones en vivo',
-    desc: 'Eventos abiertos donde Fernanda y el equipo Nexus comparten estrategias y responden preguntas en tiempo real.',
-  },
-  {
-    variant: 'light',
-    shadow: 'teal',
-    title: 'Comunidad activa',
-    desc: 'Un espacio de traders reales que aprenden juntos, se apoyan y avanzan en el mismo camino.',
-  },
 ];

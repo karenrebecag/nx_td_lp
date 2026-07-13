@@ -24,8 +24,9 @@
 
 /* ── Slider (OSMO "watch CSS") ────────────────────────────────────────────────── */
 .aa-landing .aa-benefits__slider {
-  --slider-status: on;
-  --slider-spv: 3;
+  /* Off: las 3 cards se apilan en columna, sin carrusel ni controles. */
+  --slider-status: off;
+  --slider-spv: 1;
   --slider-gap: var(--aa-gap-m);
   position: relative;
   width: 100%;
@@ -39,16 +40,14 @@
 }
 .aa-landing .aa-benefits__track {
   display: flex;
-  user-select: none;
+  flex-direction: column;
+  gap: var(--slider-gap);
   touch-action: pan-y;
-  will-change: transform;
 }
 .aa-landing .aa-benefits__slide {
   flex: none;
-  width: calc((100% - (var(--slider-spv) - 1) * var(--slider-gap)) / var(--slider-spv));
-  margin-right: var(--slider-gap);
+  width: 100%;
 }
-.aa-landing .aa-benefits__slide:last-child { margin-right: 0; }
 
 /* Controles prev/next — alineados al ancho de contenido */
 .aa-landing .aa-benefits__controls {
@@ -88,7 +87,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--aa-gap-m);
-  aspect-ratio: 3 / 4;
   padding: var(--aa-padding-s);
   border-radius: var(--aa-radius-xl);
   overflow: hidden;
@@ -175,17 +173,9 @@
 .aa-landing .aa-bcard--dark .aa-bcard__shape { color: var(--aa-cream); }
 
 /* Sombra apilada (offset duro 0 8px 0) por tono */
-.aa-landing .aa-bcard--shadow-teal { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-teal-900); }
 .aa-landing .aa-bcard--shadow-warm { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-shadow-warm); }
 .aa-landing .aa-bcard--shadow-cool { box-shadow: 0 var(--aa-gap-xxs) 0 var(--aa-shadow-cool); }
 
-/* ── Responsive: slides-per-view ──────────────────────────────────────────────── */
-@media screen and (max-width: 991px) {
-  .aa-landing .aa-benefits__slider { --slider-spv: 2.25; }
-}
 @media screen and (max-width: 767px) {
-  .aa-landing .aa-benefits__slider {
-    --slider-spv: 1.15;
-    --slider-gap: var(--aa-gap-s);
-  }
+  .aa-landing .aa-benefits__slider { --slider-gap: var(--aa-gap-s); }
 }
