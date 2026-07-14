@@ -36,4 +36,4 @@ export const TRADECO = {
 };
 
 // CTA único del funnel: Ads → LP → Telegram.
-export const TELEGRAM_URL = 'https://t.me/+NNS3WGnB-cxhZTgx';
+export const TELEGRAM_URL = 'https://t.me/+W_27SjQrwvlmNGNh';
