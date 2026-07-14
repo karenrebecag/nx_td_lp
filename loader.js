@@ -2,7 +2,7 @@
 // Host carga SOLO este archivo con @latest; el loader inyecta CSS y JS
 // al tag inmutable (vX.Y.Z). CI purga @main y @latest en jsDelivr tras cada release.
 (function () {
-  var v = "1.0.9";
+  var v = "1.0.10";
   var base = "https://cdn.jsdelivr.net/gh/karenrebecag/nx_td_lp";
 
   var css = document.createElement("link");
