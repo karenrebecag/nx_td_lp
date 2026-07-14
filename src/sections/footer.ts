@@ -31,7 +31,7 @@ export function renderFooterSection(root: Element): void {
       label: FOOTER_CTA.label,
       variant: 'primary',
       size: 'sm',
-      target: '_blank',
+      className: 'cta-telegram',
     }),
   );
 

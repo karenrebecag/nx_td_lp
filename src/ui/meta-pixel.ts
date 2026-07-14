@@ -33,18 +33,24 @@ interface FbqFn {
   version?: string;
 }
 
-function track(event: string): void {
-  const fbq = (window as unknown as { fbq?: FbqFn }).fbq;
-  fbq?.('track', event);
-}
+// CTA del funnel (unirse al canal de Telegram). Réplica del handler que pide la agencia
+// (Lead + EntrouComunidade + redirect con delay de 250ms para que el pixel dispare antes
+// de navegar), pero delegado en document: su querySelectorAll inline no serviría porque
+// la LP renderiza los botones por JS después del parse — no existirían al correr el script.
+const REDIRECT_DELAY_MS = 250;
 
-// Lead = clic al CTA del funnel (unirse al canal de Telegram). Listener delegado en
-// document: cubre todos los links a t.me (hero, footer, navbar, topbar) sin acoplar el
-// tracking a cada botón, y sirve aunque se monten después del boot.
 function initLeadTracking(): void {
   document.addEventListener('click', (e) => {
-    const link = (e.target as Element | null)?.closest('a[href^="https://t.me/"]');
-    if (link) track('Lead');
+    const link = (e.target as Element | null)?.closest<HTMLAnchorElement>('a.cta-telegram');
+    if (!link) return;
+
+    e.preventDefault();
+    const fbq = (window as unknown as { fbq?: FbqFn }).fbq;
+    fbq?.('track', 'Lead');
+    fbq?.('trackCustom', 'EntrouComunidade');
+    setTimeout(() => {
+      window.location.href = link.href;
+    }, REDIRECT_DELAY_MS);
   });
 }
 

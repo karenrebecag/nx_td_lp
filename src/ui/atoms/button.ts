@@ -11,14 +11,17 @@ export interface ButtonOptions {
   size?: 'default' | 'sm';
   target?: '_blank' | '_self';
   icon?: boolean;
+  // Clase extra (p.ej. cta-telegram) para hooks de tracking externos sin acoplar el átomo.
+  className?: string;
 }
 
 export function renderButton(opts: ButtonOptions): HTMLElement {
-  const { label, href, variant = 'primary', size = 'default', target, icon = true } = opts;
+  const { label, href, variant = 'primary', size = 'default', target, icon = true, className } = opts;
 
   const tag = href ? 'a' : 'button';
   const el = document.createElement(tag) as HTMLAnchorElement | HTMLButtonElement;
   el.className = `aa-button aa-button--${variant} aa-button--${size}`;
+  if (className) el.classList.add(...className.split(' '));
   el.setAttribute('data-aa-btn018', '');
   el.setAttribute('data-aa-btn018-width-increase', '8');
   el.setAttribute('data-aa-btn018-height-increase', '4');

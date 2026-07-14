@@ -38,7 +38,7 @@ export function renderJoinSection(root: Element): void {
       href: TELEGRAM_URL,
       label: JOIN_SECTION.buttonLabel,
       variant: 'primary',
-      target: '_blank',
+      className: 'cta-telegram',
     }),
   );
 
